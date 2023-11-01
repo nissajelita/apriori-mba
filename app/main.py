@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import mlxtend
+import networkx
+import PyARMViz
+import plotly
 
 # pip install PyARMViz
 #     !pip install networkx
