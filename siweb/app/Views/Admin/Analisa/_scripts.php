@@ -1,9 +1,8 @@
 <script>
     function btnAnalisa() {
-
-        const fromDate = $('#fromDate').val();
-        const toDate = $('#toDate').val();
-        console.log(fromDate);
+        const fromDate   = $('#fromDate').val();
+        const toDate     = $('#toDate').val();
+        const minSupport = $('#minSupport').val();
         if (fromDate === null ||fromDate === '') {
             return Swal.fire('Oops!', 'Silakan Pilih Tanggal Mulai', 'warning');
         }
@@ -13,7 +12,9 @@
         if (fromDate > toDate) {
             return Swal.fire('Oops!', 'Tanggal mulai tidak boleh lebih besar dari tanggal akhir!', 'warning');
         }
-
+        if (minSupport < 1 || minSupport > 100) {
+            return Swal.fire('Oops!', 'Min support tidak valid!', 'warning');
+        }
         Swal.fire({
         title: 'Konfirmasi',
         text: 'Lakukan Analisa Apriori pada data penjualan tersebut?',
@@ -22,46 +23,42 @@
         confirmButtonText: 'Ya!',
         cancelButtonText: 'Batal'
         }).then((result) => {
-                if (result.isConfirmed) {
+            if (result.isConfirmed) 
+                {
                     $.ajax({
                         type: 'POST',
-                        url: '<?= base_url('analisa/get-analisa'); ?>',
-                        dataType: 'json',
-                        data: 
-                            {
-                                tgl_awal: fromDate,
-                                tgl_akhir: toDate,
-                            },
-                        success: function(response) {
-                            console.log(response);
-                            if (response.Code === 200) {
-                            Swal.fire(
-                                'Simpan!',
-                                response.Message,
-                                'success'
-                            );
-                            location.reload();
-                            } else {
-                                console.log(response);
-                                Swal.fire(
-                                    'Error',
-                                    response.Message,
-                                    'error'
-                                );
-                            }
+                        url: '<?= base_url('analisa/get-analisa'); ?>', // Corrected URL for the controller method
+                        dataType: 'html',
+                        data: {
+                            tgl_awal: fromDate,
+                            tgl_akhir: toDate,
+                            min_support: minSupport
+                        },
+                        beforeSend:function() {
+                            $("#dataAnalisa").hide();
+                            $("#gambar1").show();
+                            $("#processingResults").removeAttr("hidden");
+                            $("#btnFitlerAnalisa").attr("disabled", true);
+                        },
+                        complete:function() {
+                            $("#gambar1").hide();
+                            $("#processingResults").attr("hidden", true); 
+                            $("#dataAnalisa").show();
+                            $("#btnFitlerAnalisa").removeAttr("disabled");
+                        },
+                        success: function(result) {
+                            $('#dataAnalisa').html(result); 
+                            feather.replace();
+                            $('#tabelAnalisa').DataTable({
+                                "destroy": true,
+                            });
                         },
                         error: function(xhr, status, error) {
-                            console.log(xhr)
-                            var errorMessage = +': ' + xhr.statusText
-                            swal.fire(
-                                '404',
-                                xhr.responseText,
-                                'warning'
-                            )
+                            console.error(error);
                         }
                     });
-                    return false;
-                }
-            });
-    }
+                } 
+});
+
+}
 </script>

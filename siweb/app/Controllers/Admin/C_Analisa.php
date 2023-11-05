@@ -11,9 +11,9 @@ class C_Analisa extends BaseController
 {
     public function __construct()
     {
-        $this->itemModel = new M_Item();
+        $this->itemModel      = new M_Item();
         $this->penjualanModel = new M_Penjualan();
-        $this->analisaModel = new M_Analisa();
+        $this->analisaModel   = new M_Analisa();
     }
 
     public function index()
@@ -22,18 +22,24 @@ class C_Analisa extends BaseController
         return view("Admin\Analisa\index", $data);
     }
 
-    public function AnalisaData()
-    {
-        $tgl_awal = $this->request->getPost('tgl_awal');
-        $tgl_akhir = $this->request->getPost('tgl_akhir');
-        $data['penjualan'] = $this->penjualanModel->get_data_penjualan_by_tgl($tgl_awal, $tgl_akhir)->getResultArray();
-        $data['item'] = $this->itemModel->get_all_data_item()->getResultArray();$this->itemModel->get_all_data_item()->getResultArray();
-        $response = $this->analisaModel->post_data_penjualan($data);
-        // dd($response);
-        return json_encode($response);
-    // Anda dapat menangani respons Flask di sini
-    // Contoh: var_dump($response);
-    //     dd($response);
-    // return $response;
+    public function AnalisaData() {
+        try {
+            $hasil['title']      = 'Apriori Rules Results';
+            $tgl_awal            = $this->request->getPost('tgl_awal');
+            $tgl_akhir           = $this->request->getPost('tgl_akhir');
+            $min_support         = (int)$this->request->getPost('min_support');
+            $data['min_support'] = $min_support/1000;
+            $data['penjualan']   = $this->penjualanModel->get_data_penjualan_by_tgl($tgl_awal, $tgl_akhir)->getResultArray();
+            $data['item']        = $this->itemModel->get_all_data_item()->getResultArray();
+            $hasil['response']   = $this->analisaModel->post_data_penjualan($data);
+            // dd($hasil);
+            // return json_encode($hasil['response']);
+            // $hasil['content'] = view("Admin/Analisa/tabel", $data); 
+            return view("Admin/Analisa/tabel", $hasil); 
+        } catch (\Exception $e) {
+            die("Error: " . $e->getMessage());
+        }
     }
 }
+
+
