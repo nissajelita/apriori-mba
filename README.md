@@ -14,14 +14,15 @@ A simple website based for market basket analysis using apriori algorithm. It al
 # Installation
 To run this project locally, follow these steps:
 ## Prerequisites
-* Python 3.x
+* Python 3.11
 * PHP
 * CodeIgniter 4
+* Miniconda (optional)
 * Flask
 * PostgreSQL
 ## Steps
-* Clone the repository: 
+1. Clone the repository: 
 `git clone https://github.com/yourusername/your-repo-name.git`
-
-* hkh
-* 
+2. Set up the CodeIgniter 4 environment and configure the database settings.
+3. Set up python library for running the Flask API model. If you had miniconda, you can simply go to miniconda prompt go to folder which had [env_mba.yml](/env_mba.yml) and running the command `conda env create -f environment.yml`
+6. 
