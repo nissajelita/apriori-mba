@@ -18,10 +18,10 @@ To run this project locally, follow these steps:
 * PostgreSQL
 ## Steps
 1. Clone the repository: 
-`git clone https://github.com/yourusername/your-repo-name.git`
+`git clone https://github.com/nissajelita/apriori-mba.git`
 2. Create the necessary database by import [dbapriori.sql](/siweb/database/dbapriori.sql) on PostgreSQL.
 3. Set up the CodeIgniter 4 environment and configure the database settings by [change this configuration](/siweb/env).
-4. Set up python library for running the Flask API model. If you had miniconda, you can simply go to miniconda prompt go to folder which had [env_mba.yml](/env_mba.yml) and running the command `conda env create -f environment.yml`
+4. Set up python library for running the Flask API model. If you had miniconda, you can simply go to miniconda prompt go to folder which had [env_mba.yml](/env_mba.yml) and running the command `conda env create -f env_mba.yml`
 
 # Run the project
 * git bash on folder [siweb](/siweb) and run this command `git spark serve`
