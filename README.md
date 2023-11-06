@@ -20,7 +20,8 @@ To run this project locally, follow these steps:
 * Flask
 * PostgreSQL
 ## Steps
-* Clone the repository: `git clone https://github.com/yourusername/your-repo-name.git```
+* Clone the repository: 
+`git clone https://github.com/yourusername/your-repo-name.git`
 
 * hkh
 * 
