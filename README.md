@@ -5,8 +5,22 @@ A simple website based for market basket analysis using apriori algorithm. It al
 
 # Table of Content
   - Installation
-Features
-Usage
-Limitations
-Contributing
-License
+  - Features
+  - Usage
+  - Limitations
+  - Contributing
+  - License
+
+# Installation
+To run this project locally, follow these steps:
+## Prerequisites
+* Python 3.x
+* PHP
+* CodeIgniter 4
+* Flask
+* PostgreSQL
+## Steps
+* Clone the repository: > git clone https://github.com/yourusername/your-repo-name.git
+
+* hkh
+* 
