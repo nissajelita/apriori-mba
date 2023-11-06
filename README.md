@@ -1,7 +1,6 @@
 # apriori-mba
 
-#Description
+# Description
+A simple website based for market basket analysis using mlxtend apriori algorithm.
 
-a simple website based for market basket analysis with apriori algorithm
-
-#Table of Content
+# Table of Content
