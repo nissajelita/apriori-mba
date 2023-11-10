@@ -23,7 +23,7 @@ To run this project locally, follow these steps:
 5. Set up python library for running the Flask API model. If you had miniconda, you can simply go to miniconda prompt go to folder which had [env_mba.yml](/env_mba.yml) and running the command `conda env create -f env_mba.yml`
 
 # Run the project
-* git bash on folder [siweb](/siweb) and run this command `git spark serve`. If the installation fails, make sure that Composer is installed on your local machine by running command `composer` in the terminal. If you haven't, please download and install it by following the instructions on the official [composer](https://getcomposer.org/download/)] website.
+* git bash on folder [siweb](/siweb) and run this command `git spark serve`.
 * open [app.py](/app.py) and activate the environtment by runing `conda activate env_mba`, then run `python app.py` to run the backend.
 * The web app will start on localhost:8080
 
