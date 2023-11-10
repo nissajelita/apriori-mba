@@ -28,5 +28,4 @@ To run this project locally, follow these steps:
 * The web app will start on localhost:8080
 
 This following screenshot showed the result of analysis based on the data
-![Apriori Analyze Result](img/analyze-result.png){:height="200px"}
-![Apriori Analyze Result Graph](img/analyze-result-graph.png){:height="200px"}
+![Apriori Analyze Result](img/analyze-result.png)
