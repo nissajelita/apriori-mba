@@ -19,7 +19,7 @@ To run this project locally, follow these steps:
 1. Clone the repository: 
 `git clone https://github.com/nissajelita/apriori-mba.git`
 2. Create the necessary database by import [dbapriori.sql](/siweb/database/dbapriori.sql) on MySQL Workbench.
-4. Set up the CodeIgniter 4 environment and configure the database settings by [change this configuration](/siweb/env).
+4. Set up the CodeIgniter 4 environment and configure the database settings.
 5. Go to miniconda prompt and navigate to the directory where [env_mba.yml](/env_mba.yml) file is located. Run the command `conda env create -f env_mba.yml`
 
 # Run the project
