@@ -23,7 +23,7 @@ To run this project locally, follow these steps:
 5. Go to miniconda prompt and navigate to the directory where [env_mba.yml](/env_mba.yml) file is located. Run the command `conda env create -f env_mba.yml`
 
 # Run the project
-* git bash on folder [siweb](/siweb), run `git spark serve`.
+* git bash on folder [siweb](/siweb), run `php spark serve`.
 * open [app.py](/app.py) and activate the environtment by runing `conda activate env_mba`, then run `python app.py`.
 * The web app will start on localhost:8080
 
